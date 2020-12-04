@@ -67,4 +67,7 @@ class Stack
   #--------------------------------------#
   # Exercise 3
   class Map
+    def initialize
+      @map_arr = []
+    end
   end
