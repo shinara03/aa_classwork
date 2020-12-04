@@ -26,3 +26,10 @@ class Stack
   # p stack.pop# => [5]
   # p stack # => [2]
   # p stack.peek #=> 2
+
+  #--------------------------------------#
+  # Exercise 2 
+
+  class Queue
+    
+  end
