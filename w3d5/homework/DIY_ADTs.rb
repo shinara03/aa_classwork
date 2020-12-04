@@ -50,24 +50,48 @@ class Stack
     end
   end
 
-  q1 = Queue.new 
-  p q1.queue_arr # => []
-  q1.enqueue(2) 
-  p q1.queue_arr # => [2]
-  q1.enqueue(3) 
-  p q1.queue_arr # => [3, 2]
-  q1.enqueue(4) 
-  p q1.queue_arr # => [4, 3, 2]
-  p q1.dequeue  # => 2
-  p q1.peek # => 3
-  p q1.queue_arr # => [4, 3]
-  p q1.dequeue # => 3
-  p q1.peek # => 4
+  # q1 = Queue.new 
+  # p q1.queue_arr # => []
+  # q1.enqueue(2) 
+  # p q1.queue_arr # => [2]
+  # q1.enqueue(3) 
+  # p q1.queue_arr # => [3, 2]
+  # q1.enqueue(4) 
+  # p q1.queue_arr # => [4, 3, 2]
+  # p q1.dequeue  # => 2
+  # p q1.peek # => 3
+  # p q1.queue_arr # => [4, 3]
+  # p q1.dequeue # => 3
+  # p q1.peek # => 4
 
   #--------------------------------------#
   # Exercise 3
   class Map
+    
+    attr_reader :map_arr
+
     def initialize
       @map_arr = []
     end
+
+    def set(key, val)
+      new = true
+      @map_arr.each_with_index do |subArr, idx|
+        if subArr[0] == key
+          subArr[1] = val
+          new = false
+        end
+      end
+      if new
+        new_pair = [key, val]
+        @map_arr << new_pair
+      end
+    end
   end
+
+  m1 = Map.new
+  p m1.set("a", 1) 
+  p m1.set("b", 2)
+  p m1.set("c", 3)
+  p m1.set("c", 4)
+  p m1.map_arr
