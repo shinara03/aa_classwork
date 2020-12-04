@@ -45,7 +45,9 @@ class Stack
       @queue_arr.pop
     end
 
-
+    def peek 
+      @queue_arr.last
+    end
   end
 
   q1 = Queue.new 
@@ -57,4 +59,7 @@ class Stack
   q1.enqueue(4) 
   p q1.queue_arr # => [4, 3, 2]
   p q1.dequeue  # => 2
+  p q1.peek # => 3
   p q1.queue_arr # => [4, 3]
+  p q1.dequeue # => 3
+  p q1.peek # => 4
