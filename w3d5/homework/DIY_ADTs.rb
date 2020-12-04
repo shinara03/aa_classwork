@@ -87,6 +87,11 @@ class Stack
         @map_arr << new_pair
       end
     end
+
+    def get(key)
+      @map_arr.each {|subArr| return subArr[1] if subArr[0] == key}
+      nil
+    end
   end
 
   m1 = Map.new
@@ -95,3 +100,6 @@ class Stack
   p m1.set("c", 3)
   p m1.set("c", 4)
   p m1.map_arr
+  p m1.get("c")
+  p m1.get("a")
+  p m1.get("f")
