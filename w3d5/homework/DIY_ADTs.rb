@@ -63,3 +63,8 @@ class Stack
   p q1.queue_arr # => [4, 3]
   p q1.dequeue # => 3
   p q1.peek # => 4
+
+  #--------------------------------------#
+  # Exercise 3
+  class Map
+  end
