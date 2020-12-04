@@ -41,6 +41,11 @@ class Stack
       @queue_arr.unshift(el)
     end
 
+    def dequeue
+      @queue_arr.pop
+    end
+
+
   end
 
   q1 = Queue.new 
@@ -51,3 +56,5 @@ class Stack
   p q1.queue_arr # => [3, 2]
   q1.enqueue(4) 
   p q1.queue_arr # => [4, 3, 2]
+  p q1.dequeue  # => 2
+  p q1.queue_arr # => [4, 3]
