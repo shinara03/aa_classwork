@@ -92,14 +92,33 @@ class Stack
       @map_arr.each {|subArr| return subArr[1] if subArr[0] == key}
       nil
     end
+
+    def delete(key)
+      delete_idx = @map_arr.index {|subArr| subArr[0] == key}
+      if delete_idx != nil
+        @map_arr.delete_at(delete_idx)
+      else
+        return nil
+      end
+    end
+
+    def show
+      @map_arr
+    end
   end
 
-  m1 = Map.new
-  p m1.set("a", 1) 
-  p m1.set("b", 2)
-  p m1.set("c", 3)
-  p m1.set("c", 4)
-  p m1.map_arr
-  p m1.get("c")
-  p m1.get("a")
-  p m1.get("f")
+  # m1 = Map.new
+  # p m1.set("a", 1) 
+  # p m1.set("b", 2)
+  # p m1.set("c", 3)
+  # p m1.set("c", 4)
+  # p m1.show
+  # p m1.get("c")
+  # p m1.get("a")
+  # p m1.get("f")
+  # p m1.delete("c")
+  # p m1.show
+  # p m1.delete("a")
+  # p m1.show
+  # p m1.delete("f")
+  # p m1.show
