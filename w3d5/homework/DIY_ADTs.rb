@@ -31,5 +31,13 @@ class Stack
   # Exercise 2 
 
   class Queue
-    
+
+    attr_reader :queue_arr
+    def initialize
+      @queue_arr = []
+    end
+
   end
+
+  # q1 = Queue.new 
+  # p q1.queue_arr # => []
