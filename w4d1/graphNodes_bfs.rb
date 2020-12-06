@@ -24,7 +24,6 @@ class GraphNode
         queue << neighbor unless visited.include?(neighbor.val)
       end
     end
-  
     return nil
   end
 
