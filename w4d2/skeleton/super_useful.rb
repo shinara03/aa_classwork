@@ -1,17 +1,27 @@
 # PHASE 2
 def convert_to_int(str)
   Integer(str)
+
+rescue ArgumentError
+  nil
 end
 
+class CoffeeError < StandardError
+  def message
+    "You gave me coffee, not fruit! Please try one more time"
+  end
+end
 # PHASE 3
 FRUITS = ["apple", "banana", "orange"]
 
 def reaction(maybe_fruit)
   if FRUITS.include? maybe_fruit
     puts "OMG, thanks so much for the #{maybe_fruit}!"
-  else 
-    raise StandardError 
-  end 
+  elsif maybe_fruit == "coffee"
+    raise CoffeeError
+  else
+    raise StandardError
+  end
 end
 
 def feed_me_a_fruit
@@ -20,11 +30,21 @@ def feed_me_a_fruit
   puts "Feed me a fruit! (Enter the name of a fruit:)"
   maybe_fruit = gets.chomp
   reaction(maybe_fruit) 
+rescue CoffeeError => e
+  puts e.message
+  retry
 end  
 
 # PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
+    raise ArgumentError.new("Years known should at least be 5 years to be a bestie!") if yrs_known < 5
+
+    raise ArgumentError.new("name caanot be blank") if name.length <= 0
+
+    raise ArgumentError.new("fav_pastime cannot be blank") if fav_pastime.length <= 0
+
+
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
