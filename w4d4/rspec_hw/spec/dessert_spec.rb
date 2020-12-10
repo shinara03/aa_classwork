@@ -37,13 +37,20 @@ describe Dessert do
   end
 
   describe "#mix!" do
-    it "shuffles the ingredient array"
+    it "shuffles the ingredient array" 
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    it "subtracts an amount from the quantity" do
+      expect(cake.quantity).to eq(10)
+      cake.eat(5)
+      expect(cake.quantity).to eq(5)
+    end
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
+      expect{ cake.eat(100) }.to raise_error("not enough left!")
+    end
+
   end
 
   describe "#serve" do
