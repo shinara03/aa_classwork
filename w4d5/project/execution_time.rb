@@ -55,9 +55,22 @@ def subsum(list)
 
 end
 
-list = [5, 3, -7]
-p subsum(list)
-list = [2, 3, -6, 7, -6, 7]
-p subsum(list)
-list = [-5, -1, -3]
-p subsum(list)
+# list = [5, 3, -7]
+# p subsum(list)
+# list = [2, 3, -6, 7, -6, 7]
+# p subsum(list)
+# list = [-5, -1, -3]
+# p subsum(list)
+
+
+def _subsum(list)
+  largest_sum = -1.0/0.0
+  current_sum = 0
+   finish=1
+  list.each do |ei, i|
+    _sub = list[i..finish].sum
+    current_sum+=
+  end 
+
+  largest_sum
+end
