@@ -19,6 +19,20 @@ def compare(arr)
   result
 end
 
-# list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
-# my_min(list)  # =>  -5
+def my_min_2(list)
+
+  min = 1.0/0.0
+  list.each_with_index do |ei, i|
+
+    list.each_with_index do |ej, j|
+      if ej < min && j > i
+        min = ej
+      end
+    end
+  end
+  min
+end
+
+list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+p my_min_2(list)  # =>  -5
 
