@@ -23,7 +23,6 @@ def my_min_2(list)
 
   min = 1.0/0.0
   list.each_with_index do |ei, i|
-
     list.each_with_index do |ej, j|
       if ej < min && j > i
         min = ej
@@ -33,6 +32,32 @@ def my_min_2(list)
   min
 end
 
-list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
-p my_min_2(list)  # =>  -5
+# list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+# p my_min_2(list)  # =>  -5
 
+#largest_contiguous_subsum
+def subsum(list)
+  
+  sublist = []
+
+  list.each_with_index do |ei, start|
+    list.each_with_index do |ej, finish|
+      sub = list[start..finish]
+      sublist << sub unless sub.empty?
+    end
+  end
+
+  largest = -1.0/0.0
+  sublist.each do |sub|
+    largest = sub.sum if largest < sub.sum
+  end
+  largest
+
+end
+
+list = [5, 3, -7]
+p subsum(list)
+list = [2, 3, -6, 7, -6, 7]
+p subsum(list)
+list = [-5, -1, -3]
+p subsum(list)
