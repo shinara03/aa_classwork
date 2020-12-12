@@ -1,17 +1,15 @@
 #phase 1
-
-
 # n!, n!
+#space complex: n! ---> generating many arrays to store the different permutations
+# time complexity of .split('') is n ---> it iterates thru
+#.include?: n
 def first_anagram?(string_a, string_b)
 
   string_a.split("").permutation.to_a.include?(string_b.split(""))
-
-
 end
 
 # p first_anagram?("cat","tac")
-
-# n^3, 
+# n^2, 
 def second_anagram?(string_a, string_b)
   string_b_arr = string_b.split("")  # => n 
 
@@ -27,19 +25,21 @@ def second_anagram?(string_a, string_b)
 
   end
 
-
   string_b_arr.empty? && string_a.length == string_b.length
 end
 
+# .sort in ruby uses an optimized quicksort = nlog(n) 
+#split is O(n)
+# mulitply n for loops
+# add n for same level 
 
 
-# n^2 or nlog(n) 
 def third_anagram?(string_a, string_b)
 
   string_a.split("").sort == string_b.split("").sort
 end
 
-
+# O(n)
 def fourth_anagram?(string_a, string_b)
 
   hash_1 = Hash.new(0)
