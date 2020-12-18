@@ -26,7 +26,7 @@ def harrison_ford
 
 end
 
-def biggest_cst
+def biggest_cast
   # Consider the following:
   #
   # Actor
@@ -40,7 +40,7 @@ def biggest_cst
   #
   # Find the id and title of the 3 movies with the
   # largest casts (i.e most actors)
-
+  Movie.joins(:actors, :castings).select("movies.id, movies.title").group("movies.id").order("COUNT(actors.id) DESC").limit(3)
 end
 
 def directed_by_one_of(them)
@@ -55,7 +55,7 @@ def directed_by_one_of(them)
   # Movie.where(yr: years)
   #
   # Find the id and title of all the movies directed by one of 'them'.
-
+  Movie.joins(:actors).select("movies.id, movies.title").where(actors: {name: them})
 end
 
 def movie_names_before_1940
