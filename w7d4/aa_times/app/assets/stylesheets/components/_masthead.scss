@@ -27,6 +27,10 @@
 	ul {
 		display: flex;
 	}
+
+	li:first-of-type {
+		a {font-weight: bold;}
+	}
 }
 
 .logo {
