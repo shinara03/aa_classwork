@@ -26,3 +26,18 @@ Array.prototype.twoSum = function() {
 };
 
 // console.log([1,2,-2,-1,3,5].twoSum())
+
+Array.prototype.transpose = function() {
+  let transpose_arr = [];
+  for(let i = 0; i < this.length; i++) {
+    let row = [];
+    for(let j = 0; j < this.length; j++) {
+      row.push(this[j][i]);
+    }
+    transpose_arr.push(row);
+  }
+  return transpose_arr;
+};
+
+// console.log([[1,2], [3, 4]].transpose())
+
