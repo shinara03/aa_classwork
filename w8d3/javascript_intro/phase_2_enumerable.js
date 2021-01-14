@@ -31,3 +31,21 @@ function doubler(n) {
 
 console.log([1, 2, 3, 4, 5].myMap(doubler))
 
+// console.log([1, 2, 3, 4, 5].myMap(doubler))
+
+Array.prototype.myReduce = function(cb, init_val) {
+    if (init_val === undefined) {
+        init_val = this[0];
+        i = 1
+    }else {
+        i = 0; 
+    } 
+
+    this.slice(i).myEach((el) => init_val = cb(init_val, el))
+    return init_val;
+};
+
+// console.log([1, 2, 3].myReduce(function (acc, el) {
+//     return acc + el;
+// }, 25));
+
