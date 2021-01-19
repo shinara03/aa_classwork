@@ -114,6 +114,32 @@ function curriedSum(numArgs) {
 // const sum3 = curriedSum(4);
 // console.log(sum3(5)(30)(20)(1)); // => 56
 
-Function.prototype.curry = fuction() {
-  
+Function.prototype.curry = function(numArgs) { //...way
+  let that = this;
+  let args = [];
+  return function _curry(num) {
+    args.push(num);
+    if (args.length === numArgs) {
+      return that(...args);
+    } else {
+      return _curry;
+    }
+  }
 }
+
+
+Function.prototype.curry2 = function(numArgs) { //apply way
+  let that = this;
+  let args = [];
+  return function _curry(num) {
+    args.push(num);
+    if (args.length === numArgs) {
+      return that.apply(that, args);
+    } else {
+      return _curry;
+    }
+  }
+}
+
+const sumCurry = sum.curry2(3);
+console.log(sumCurry(1)(2)(3));
