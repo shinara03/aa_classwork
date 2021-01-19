@@ -22,16 +22,26 @@ function sum2(...args) {
 
 Function.prototype.myBind = function (context) {
   let that = this;
-  if (arguments.length > 1) {
-    return function () {
-      return that.apply(context, [...arguments].slice(1))
-    }
-  } else {
-    return function () {
-      return that.apply(context);
-    }
-  }
+  
+  // console.log(arguments);
+  let arr = [...arguments].slice(1);
+  return function() {
+    console.log(this);
+    let secondArr = [...arguments];
+    arr = arr.concat(secondArr);
+    return that.apply(context, arr);
+  } 
+  
 }
+  //   return function () {
+  //     return that.apply(context, arr);
+  //   }
+  // } else {
+  //   return function () {
+  //     return that.apply(context);
+  //   }
+  // }
+
 
 class Cat {
   constructor(name) {
