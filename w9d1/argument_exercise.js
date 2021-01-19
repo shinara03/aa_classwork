@@ -134,7 +134,7 @@ Function.prototype.curry2 = function(numArgs) { //apply way
   return function _curry(num) {
     args.push(num);
     if (args.length === numArgs) {
-      return that.apply(that, args);
+      return that.apply(null, args);
     } else {
       return _curry;
     }
