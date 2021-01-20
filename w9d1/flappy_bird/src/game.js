@@ -6,9 +6,15 @@ export default class FlappyBird {
     this.dimensions = { width: canvas.width, height: canvas.height };
   }
 
-  restart //to be written\
+  restart() {
+    this.level = new Level(this.dimensions);
+    this.animate(this);
+
+  } //to be written\
   //contains @level
 
-  animate //
+  animate(ctx) {
+    this.level.animate(ctx);
+  } //
   //calls @level.animate();
 }
