@@ -5,4 +5,4 @@ const canvas = document.getElementById('bird-game');
 new FlappyBird(canvas);
 
 const newGame = new Game(canvas);
-newGame.restart();
+// newGame.restart();
