@@ -20,7 +20,10 @@ export default class FlappyBird {
   animate(ctx) {
     this.level.animate(ctx);
     this.bird.animate(ctx);
-    requestAnimationFrame(animate(ctx));
+    if (this.running) {
+      requestAnimationFrame(this.animate(ctx));
+    }
+    
   } 
 
   play() {
