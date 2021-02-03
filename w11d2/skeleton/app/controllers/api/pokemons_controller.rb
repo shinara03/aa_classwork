@@ -1,7 +1,7 @@
-class Api::PokemonController < ApplicationController
+class Api::PokemonsController < ApplicationController
   def index
     @pokemons = Pokemon.all
-    render :index
+    render json: @pokemons
   end
 
   def show
