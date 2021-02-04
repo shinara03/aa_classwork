@@ -5,7 +5,6 @@ export const PokemonIndexItem = (props) => {
   return (
     <li className="pokemon-index-item">
       <Link to={`/pokemon/${props.pokemon.id}`}>
-      <span>{props.pokemon.id}</span>
       <span>{props.pokemon.name}</span>
       <img src={props.pokemon.imageUrl}/>
       </Link>
